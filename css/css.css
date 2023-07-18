@@ -1,0 +1,10 @@
+td {  font-size: 12px}
+.tdcolorred {  color: #FFFFFF; background-color: #990000}
+a {  text-decoration: none; color: #000000}
+a:hover {  color: #0099CC; text-decoration: underline}
+a:visited {  color: #000000}
+.fontcolorwhite {  color: #FFFFFF}
+.wordspace1 {  letter-spacing: 1px}
+.BORDER1 {
+	border: 1px solid #000000;
+}
