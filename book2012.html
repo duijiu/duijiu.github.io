@@ -1,0 +1,530 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="keywords" content="Flash ActionScript 3.0全站互动设计,人民邮电出版社,刘欢,design,graphic,website,flash,photoshop,liuhuan,decayedwood,Liu Huan,Huan Liu,photography" />
+<meta name="description" content="Flash Design - www.liuhuan.com -  The homepage of Liu Huan." />
+<META name="verify-v1" content="/x9u9qdaqfP5dyVIhcaG1vKKVOxNcYIbxBzW2ShZes8=" /> 
+<title>《Flash ActionScript3.0 全站互动设计》 - www.liuhuan.com</title>
+<link href="book2012/css.css" rel="stylesheet">
+<script type="text/javascript" src="book2012/jquery-1.8.0.min.js"></script>
+<!--[if lt IE 9]>
+<script src="book2012/html5shiv.js"></script>
+<![endif]-->
+<!--[if lt IE 7]>
+<script type="text/javascript" src="book2012/unitpngfix.js"></script>
+<![endif]-->
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#headerContainer nav a").each(function(){
+		var vCord = $($(this).attr("href")).offset().top-15;
+		$(this).attr("vCord", vCord);
+ 	})
+	$("#headerContainer nav a").click(function(){
+		$("html,body").animate({scrollTop:$(this).attr("vCord")},800);
+	})
+	$(".gotop").click(function(){
+		$("html,body").animate({scrollTop:0},800);
+	})
+});
+</script>
+</head>
+
+<body>
+<header id="header">
+	<div id="headerW">
+		<div id="quicknav">
+		  <ul>
+			<li><a href="http://www.liuhuan.com/flashindex1.htm">Website</a></li>
+			<li><a href="http://chinaservant.web13.kingstor.net/blog">Blog</a></li>
+			<li><a href="http://weibo.com/liuhuan">Weibo</a></li>
+		  </ul>
+		</div>
+		<div id="headerContainer">
+			<h1 id="title"><a href="#">《Flash ActionScript 3.0 全站互动设计》 作者：刘欢 人民邮电出版社</a></h1>
+			<nav id="nav">
+			  <ul>
+				<li><a href="#preface">前言</a></li>
+				<li><a href="#about">介绍</a></li>
+				<li><a href="#acknowledgements">致谢</a></li>
+				<li><a href="#purchase">购买</a></li>
+				<li><a href="#samples">样例</a></li>
+				<li><a href="#errata">勘误</a></li>
+				<li><a href="#postscript">后记</a></li>
+				<li><a href="#author">作者</a></li>
+				<li><a href="#contents">目录</a></li>
+			  </ul>
+			</nav>
+		</div>
+	</div>
+</header>
+<section id="mainContent">
+	<div id="articles">
+		<article id="preface">
+			<header><h2>前言/Preface</h2></header>
+			<p>2008年6月的某一天，幸运的收到了人民邮电出版社杨璐编辑的一封邮件。邮件是她的一本Flash方面书籍的写书邀请。</p>
+			<p>得到杨璐的邀请让我非常开心。我在2004年也写过一本Flash动画的书:<a href="http://chinaservant.web13.kingstor.net/blog/article.asp?id=815" target="_blank">《网页设计师必读——网页动画Flash CS3》</a>（2007年底由电子工业出版社出版）。遗憾的是，这本书通篇都是关于Flash的动画制作方面的，如动画贺卡、Flash MTV等，很少涉及代码。而接下来几年我从事的都是Flash互动设计方面的项目，特别是和朋友一起在4A、国内外设计公司做了大量ActionScript方面的Flash互动网站开发。在这期间，很希望能够再写一本关于Flash建站方面的书，以此整理自己在项目过程中的经验和收获。</p>
+			<p>杨璐的想法与我不谋而合。在她看来，无论是全站还是局部应用，在很多企业网站中都需要用到Flash，相关的实际应用是千变万化的。现在市场上还很少有书从Flash网站元素入手，逐步深入到Flash全站，我们的书因此应是很有价值的。我们仔细商量了下书的主题和层次结构。杨璐勾画了本书的大框架，我将细致的目录充实进去，并花了一个月的时间制作所有的样例（见样例）。一切准备就绪之后，就开始了书稿的写作。</p>
+			<p>这本书从7月中旬开始，边写边和杨璐讨论，修改，前前后后一共花了三个半月。暑假期间在西昌，几乎天天窝在家里写，进度还是比较快的，半个月不到就完成了前八章的初稿。杨璐计划10月全部交稿，来年1月旺季出书。于是从9月中旬开始写书的后半部分，一直到10月的最后一天，总算把所有书稿都完成了。</p>
+			<p>然而，接下来却发生了意想不到的事情。由于08年开始，计算机图书市场开始变得严重不景气，导致出版社调整了出版计划，计算机图书的出版大幅缩水，我们的书也被排在了计划以外。09年，我们的书没有能出版，然后是2010，2011。。。</p>
+			<p>时间一晃就到了2012。在这几年漫长的时间中，Flash本身在不断更新和升级中。2010年Flash CS5推出，2012年Flash CS6推出 ，其间ActionScript 3.0也有了很多更新。我们只能继续动态修改书稿，希望书稿能够体现最新的技术更新。很多时候这是比较大的修改，大部分的图例都重新制作过2到3次。 漫长的等待，本来我都对这本书的出版失去希望了。直到今年，杨璐告诉我这书已经进了流程，总算可以出版的时候，心里真是说不出的喜悦！</p>
+			<p>出版的过程也不是一帆风顺，原定7月底上市，结果因为种种原因进展比较缓慢。甚至在印刷阶段，还因为排版公司选择的书眉字体出现问题，书不得不全部重印，增加了不少成本（痛）。为此杨璐也非常郁闷，她说，这也许就是“好事多磨”吧!</p>
+			<p>今时今日，Flash的热度已不如从前。CSS、JavaScript，特别是HTML5给Flash造成了很大的冲击，移动应用开发成为时下热门。但不可否认，Flash仍然是一个伟大的软件。不管您是专业的程序开发者，还是毫无编程功底的美术设计师，Flash都是每个人展示自己才华的舞台。</p>
+			<p class="gotop"><a href="#">[TOP]</a></p>
+	  </article>
+		<article id="about">
+			<header><h2>介绍/About</h2></header>
+			<p>书名：《Flash ActionScript 3.0 全站互动设计 》(附光盘)</p>
+			<p>作者：刘欢</p>
+			<p>责任编辑：杨璐</p>
+			<p>出版社：人民邮电出版社</p>
+			<p> <strong>ISBN:</strong> 9787115287953 </p>
+			<p>出版时间：2012-10-1 </p>
+			<p>页　　数：488 </p>
+			<p>价　　格:	￥ 69.80</p>
+			<p>&nbsp;</p>
+			<p><strong>图书描述：</strong>  《Flash ActionScript 3.0全站互动设计》从ActionScript 3.0的基础语法入手，以当下Flash网站常见功能模块和互动元素为重点，讲解ActionScript 3.0在互动网站中的应用，包括音乐播放器、视频播放器、下拉菜单、滚动条、图片轮动、网页相册、浮动导航、XML折叠菜单、数据筛选器、新闻显示器、RSS阅读器和3D旋转Logo等，并精选两个完整网站，剖析全站互动设计细节，让读者从新手成为网站互动设计高手。<br>
+			  　　
+		    《Flash ActionScript 3.0全站互动设计》配套光盘收录ActionScript 3.0完全实用视频手册，弥补本书篇幅所限，全面讲解了ActionScript 3.0应用的方法与技巧，更收录了本书所有案例的制作过程教学视频，帮助读者更好地理解和掌握关键技术。 </p>
+			<p>&nbsp;</p>
+			<p><strong>本书简介：</strong>本书分三大部分：第一部分ActionScript编程篇，第二部分互动元素设计篇，第三部分Flash全站设计篇（见目录）。</p>
+			<p>严格地说，本书并不是一本ActionScript 3.0的大百科类书籍，并没有像参考书那样，将ActionScript 3.0中的每一个对象的属性、方法和事件都罗列和展示出来，因为对于对于日常的Flash开发来说，不是所有的功能和方法都是常用的，将它们全部搬到书上会让读者很难分辨阅读重点，让人头晕脑胀，过目即忘，其效果甚至不如直接阅读Flash自带的参考手册。反之，本书主要介绍了互动开发中常用的ActionScript知识，并且着重通过互动实例对这些代码进行灵活运用，以此使读者深入学习和掌握ActionScript 3.0。</p>
+			<p>本书还包括了一张视频学习光盘，里面有约10小时的视频实例解说，涵盖了一些书中限于篇幅没有详细指出的开发经验，特别对于初学者来说是很有价值的学习资料。</p>
+			<p>希望在读完本书后，即使是毫无基础的读者，也能熟悉掌握ActionScript 3.0，同时对ActionScript 3.0的编程和Flash在互动设计中的应用有更加直观的认识。本人学识和水平有限，书中难免有错误和遗漏，请各位不吝指正。我的电子邮箱是：liuhuan[-At-]liuhuan.com。</p>
+			<p class="gotop"><a href="#">[TOP]</a></p>
+	  </article>
+		<article id="acknowledgements">
+			<header><h2>致谢/Acknowledgements</h2></header>
+			<p>首先要感谢人民邮电出版社的杨璐女士，在整个过程中她付出了大量心血，没有她就没有本书的出版，在此向她致敬。另外，杨璐还曾编辑出版过《写给大家看的色彩书》、《别具光芒——CSS网页布局案例剖析》、《精通CSS+DIV 网页样式与布局》等多种畅销书籍。</p>
+			<p>其次，要感谢<a href="http://weibo.com/laolu2066" target="_blank">老陆</a>，将我带入了Flash的世界。曾经在2001年左右，上过老陆的Flash课，那时候用的还是ActionScript 1.0和Flash 4。 在课上看了闪客老蒋的“ 新长征路上的摇滚”，非常震撼。后来有很长一段时间醉心于Flash动画，现在还有一些很老的作品在<a href="http://www.flash8.net/user/29053.shtml" target="_blank">闪吧</a>。老陆也是我学习ActionScript的启蒙者。可以说，如果没有老陆，作为一个生物专业出身的学生，我不会在Flash这条路上一直走下去。（附：大家有兴趣还可以看看我们的<a href="http://www.shangzhoudesign.cn" target="_blank">ShangzhouDesign</a>）</p>
+			<p>和<a href="http://weibo.com/gynow" target="_blank">高远</a>、<a href="http://weibo.com/martinzhangdi" target="_blank">张迪</a>合作是过去几年自己在商业Flash项目开发中的顶点。高远是一个牛人，我从他那里学到了很多，自己的水平在与他合作的过程中也明显得到了提升。而且每当项目存在重要技术难点的时候，高远总是能够给出解决的办法。张迪则有很多绝妙的点子。我们给JWT开发的第一个作品《DTC-爱的世界》现在看来还非常惊艳，而在07年初发布的时候则引起了轰动。难以忘记的是项目发布前一个礼拜我们在英雄大厦的通宵赶工，还有Tim和老崔在JWT买一大堆红牛陪我通宵的情景。<a href="http://weibo.com/u/1957483225" target="_blank">Tim</a>和<a href="http://weibo.com/laocui01" target="_blank">老崔</a>的专业也是后来在其他4A公司很难见到的。 这个作品最后获得了2008纽约广告节铜奖、第五届中国网络广告大赛银奖等。在之后，我们陆续合作开发了“福特·精彩中国”、世茂集团等项目。项目过程中还认识了牛人陈刚（CG），说他是国内最顶级的Flash开发者应该一点不过份，他甚至自己写了一个基于AS2.0的三维库，我们也一起合作过一些互动项目，如灵智精实的“芝华士—骑士风范”等。这段时间还认识了澳大利亚NextDigital的Fabian，做了Atlas Copco等有趣项目，我硕士毕业之际还曾一度打算去这个公司。</p>
+			<p>05年底通过Mandy引荐，我认识了<a href="http://www.thebridgegroup.net" target="_blank">Fish</a>，我们一起制作了大量的国外音乐人网站，最多的时候几乎两三天做一个，客户包括世界首屈一指的丹麦竖笛艺术家Michala Petri、加拿大本土音乐制作公司Indiepool等。这也是我慢慢从Flash动画转向Flash站点开发的一个阶段，在和Fish的长期合作中我得到了锻炼和提高，也在工作中认识了像<a href="http://weibo.com/mandyholic" target="_blank">Mandy</a>、<a href="http://weibo.com/curd" target="_blank">Alex</a>这样的好朋友。Fish是个特别好的人（用这个字最能形容他）。还记得06年底我到北京参加教育部的全国ITAT技能大赛，获得  Flash动画设计特等奖后，Fish从心里为我感到高兴，特意买了一个超大的费列罗金字塔给我。当我出了第一本书以后，他还计划把我介绍给著名的Colin Moock。很感谢他为我所做的这些。但自从08年他罹患脑肿瘤后便每况愈下，现在他还在上海，希望他平安健康。</p>
+			<p>06年开始和西班牙的Alfonso Aguilera Rosique合作，他在巴塞罗那开设了一个名叫YDWM（You dream, We make it.）的设计公司。我们做了很多西班牙的本土网站，如TCN、Consiliors、Factory s.l.、Altadicion等，在当地都是很重要的品牌。这些Flash全站由于其较高的效果实现要求，对我的代码方面有非常大的提高。感谢Alfonso，我们从来没有见过面， 只通过一次电话，但是却一起做出了很多很酷的东西。另外，Alfonso和巴塞罗那队的每个队员都很熟，以至于他女儿生日的照片上，所有的巴萨球星都出席了。</p>
+			<p>除此之外，还有很多很多在项目上合作过的朋友，你们都给了我宝贵的经验财富，使我在Flash互动设计领域获益良多。在此恕我不能一一点名，谢谢大家！</p>
+			<p>最后，要感谢所有关心和支持我的人，以及我的家人，你们永远是我背后的支持者，只有你们才能让我感到幸福和心灵的平静。</p>
+			<p class="gotop"><a href="#">[TOP]</a></p>
+		</article>
+		<article id="purchase">
+			<header><h2>购买/Purchase</h2></header>
+			<p><a href="http://product.china-pub.com/3664026" target="_blank">China-Pub</a> </p>
+			<p><a href="http://www.amazon.cn/Flash-ActionScript3-0%E5%85%A8%E7%AB%99%E4%BA%92%E5%8A%A8%E8%AE%BE%E8%AE%A1-%E5%88%98%E6%AC%A2/dp/B009O65XM6/ref=sr_1_5?s=books&ie=UTF8&qid=1350174928&sr=1-5" target="_blank">Amazon</a> </p>
+			<p><a href="http://product.dangdang.com/product.aspx?product_id=22886581" target="_blank">当当</a></p>
+			<p><a href="http://book.360buy.com/11103431.html" target="_blank">京东</a></p>
+			<p><a href="http://www.suning.com/emall/prd_10052_22001_-7_3436636_.html" target="_blank">苏宁易购</a></p>
+			<p class="gotop"><a href="#">[TOP]</a></p>
+	  </article>
+		<article id="samples">
+			<header><h2>样例（部分）/Samples</h2></header>
+			<p>第二章：<a href="book2012/2/candle.swf" target="_blank">Candle</a> <a href="book2012/2/flower.swf" target="_blank">Flower</a> <a href="book2012/2/flowerpot.swf" target="_blank">Flower-pot </a></p>
+			<p>第六章：<a href="book2012/6/1.html" target="_blank">shine-Logo &amp; Fire-Ball</a></p>
+			<p>第九章：<a href="book2012/9/1/index.html" target="_blank">下拉菜单1</a> <a href="book2012/9/2/index.html" target="_blank">下拉菜单2</a> <a href="book2012/9/3/index.html" target="_blank">下拉菜单3</a></p>
+			<p>第十章：<a href="book2012/10/1.html" target="_blank">滚动条</a> <a href="book2012/10/2.html" target="_blank">模糊滚动条</a></p>
+			<p>第十一章：<a href="book2012/11/1/index.html" target="_blank">图片切换1</a> <a href="book2012/11/2/index.html" target="_blank">图片切换2</a> <a href="book2012/11/3/index.html" target="_blank">图片切换3</a></p>
+			<p>第十二章：<a href="book2012/12/1/index.html" target="_blank">相册1</a> <a href="book2012/12/2/index.html" target="_blank">相册2</a> <a href="book2012/12/3/index.html" target="_blank">相册3</a></p>
+			<p>第十三章：<a href="book2012/13/1/index.html" target="_blank">浮动1</a> <a href="book2012/13/2/index.html" target="_blank">浮动2</a> <a href="book2012/13/3/index.html" target="_blank">浮动3</a></p>
+			<p>第十四章：<a href="book2012/14/1/index.html" target="_blank">折叠菜单1</a> <a href="book2012/14/2/index.html" target="_blank">折叠菜单2</a> <a href="book2012/14/3/index.html" target="_blank">折叠菜单3</a></p>
+			<p>第十九章：<a href="book2012/19/index.htm" target="_blank">网站1</a></p>
+			<p>第二十章：<a href="book2012/20/index.htm" target="_blank">网站2</a></p>
+			<p class="gotop"><a href="#">[TOP]</a></p>
+		</article>
+		<article id="errata">
+			<header><h2>勘误/Errata</h2></header>
+			<ol>
+				<li>Page 30:var i:int在未赋值状况下，trace输出结果是0而非undefined。<strong>（谢谢网友☆随风☆指出）</strong><br>
+				<li>Page 31:倒数第7行：<br>
+			    原文：var word:String = '”this is an apple!””;//错误  <br>
+			    应为： var word:String = ””this is an apple!””;//错误</li>
+				<li>Page 41:“date”类打成了“data”，应为“date”。<strong>（谢谢网友☆随风☆指出）</strong><br>
+				<li>Page 55:两处“如图2.30所示”都应为“如图2.31所示”。</li>
+				<li>Page 63:<br>
+			    原文“设置candle元件的mouseChildren属性为flase”<br>  
+			    应为“设置candle元件的mouseChildren属性为false”</li>
+				<li>Page 64：注释“听对象为舞台本身”应为“侦听对象为舞台本身”。</li>
+				<li>Page 80：原文“fireSystem = new Missile ();”
+				应为“weapon = new Missile ();”</li>
+				<li>Page 141：FileReference的upload方法没有讲仔细，可能会让读者比较困扰，这里再解释一下：asp页面里创建上传文件对象的代码为“set file=upload.file("Filedata")”，其中的参数使用了Filedata，这是因为FileReference向后台所发送数据的name属性在默认情况下即为 "Filedata"。</li>
+				<li>Page 235：子标题“县浮”应为“悬浮”。</li>
+				<li>Page 360, Page 365：import fl.transitions.Tween 和 import fl.transitions.easing.*在本例中没有任何作用，应去掉。</li>
+				<li>Page 458, 页尾类名和基类名设置有误，设置mMenuItem的类名应为com.site.ui.MenuItem，基类不用设置。</li>
+				<li>Page 480：mDetail.visible=false 原注释为“隐藏mList元件”，应为“隐藏mDetail元件”。</li>
+				<li>关于ProLoader：这是Flash CS5.5中提出的一种代替Loader的对象。Flash在参考手册中明确提出：“当加载由 Flash Professional 生成的 SWF 文件时，应使用 fl.display.ProLoader 而非 flash.display.Loader” 。然而事实上
+ProLoader主要在类似加载使用了TLF文本的SWF等情况下有别于Loader(即 “对于使用 RSL 预加载的 SWF 文件尤其有用” )，这些都是在一般项目中较为少见的情形。而一旦使用ProLoader，必须使用Flash CS5.5以上版本才能正确发布文件，在团队协作中，如果还有成员使用之前的版本就会产生问题。在没有太大区别的情况下，我个人仍然建议继续使用Loader。本书的相关案例也都使用Loader而非ProLoader。</li>
+				<li>光盘 9.循环语句：这一节录制的时候因为紧张，在for循环输出i，j值的时候说错了，问题出在我在连接的时候用&amp;号了，应该为+号，非常抱歉。</li>
+		    </ol>
+			<p class="gotop"><a href="#">[TOP]</a></p>
+	  </article>
+	  <article id="postscript">
+			<header><h2>后记/Postscript</h2></header>
+			<p>书已出版一个月了，重新读了一遍，又看了一下光盘，发现书和光盘里还有很多的纰漏和错误，一些知识点并没有讲的很透彻，这些都让我如芒在背，羞愧不已，也有负编辑杨璐的重托。果然是本人水平有限。</p>
+			<p>有一部分书中的问题我已经更正在勘误中了，估计还有更多的错误和缺漏，在此就这些问题和错误向大家表示深深的歉意。</p>
+			<p>限于本书篇幅（策划本书时规划总页数在360页以内，现在已经远远超了），有不少东西也没法摊开来写的很详细，其实本书的内容只是商业互动设计的一些较基础的知识，希望能够籍此帮助初学者和中级开发人员快速起步，因此我的目的是尽量做到浅显易懂，很惭愧本书也许并没有做到这点。事实上，一个成熟的商业项目，涉及的知识点和难点会更多，而且在开发时间上也有非常严格的要求，需要开发者在极短的时间内找到合适的解决方案。如果有机会的话，也许还能写一些更高阶的案例，讲讲更复杂的情况。但从flash目前的发展来看，可能这样的机会会比较渺茫了。</p>
+			<p>此外，我觉得光盘视频是一种非常好的学习工具，也许能够帮助您更快速学习到一些知识。本书的附录光盘中是我录制的大约50段视频，虽然本人普通话非常不标准，而且因为录制的时候较为紧张，还有一些说错的地方，但您还是可以随便浏览看看，也许要比直接读书更加轻松一些。我上传了一些视频在youku上面，没有购买本书的朋友也可以<a href="http://v.youku.com/v_show/id_XNDcwNDkyMzY4.html?f=18516698" target="_blank">在这里</a>观看。</p>
+			<p>最后，我要向每一位购买本书的朋友道一声：谢谢！感谢你们的支持，感谢你们对我的肯定和帮助！</p>
+			<p class="gotop"><a href="#">[TOP]</a></p>
+		</article>
+		<article id="author">
+			<header><h2>作者/Author</h2></header>
+			<p>刘欢。1982年出生于重庆江津。华东师范大学生物化学和分子生物学硕士。互动设计师。现居上海，2011年起在华东师范大学信息化办公室工作。</p>
+			<p>在互动设计方面，2008年互动作品“DTC-爱的世界”获2008纽约广告节铜奖，2008年互动作品“Watch Shanghai bloom”参展第七届上海双年展，2007年互动作品“福特·精彩中国”获2007中国4A创意金印奖铜奖，2006年获教育部第二届全国ITAT大赛Flash动画设计特等奖，2004年获上海市第一届高校学生网站网页设计大赛一等奖。</p>
+			<p><a href="http://www.liuhuan.com/flashindex1.htm">进入我的个人主页</a></p>
+			<p><a href="http://weibo.com/liuhuan">我的新浪微博</a></p>
+			<p class="gotop"><a href="#">[TOP]</a></p>
+		</article>
+		<article id="contents">
+			<header><h2>目录/Contents</h2></header>
+			<ul>
+			  <li><strong>第一部分  ActionScript编程篇</strong></li>
+			  <li>第1章  Flash网站建设概览 <br>
+			    1.1  Flash网站设计趋势 <br>
+			    1.1.1  挑战传统的Flash技术应用 <br>
+			    1.1.2  Flash网站的优势和劣势 <br>
+			    1.2  Flash网站设计师的学习之路 <br>
+			    1.2.1  程序或动画：Flash网站设计师的选择 <br>
+			    1.2.2  如何成为优秀的Flash网站设计师 </li>
+			  <li>第2章  ActionScript 3.0编程基础	<br>
+			    2.1  ActionScript 3.0入门	<br>
+			    2.1.1  ActionScript 3.0的工作环境	<br>
+			    2.1.2  进入ActionScript 3.0的钥匙：trace	<br>
+			    2.1.3  添加代码注释	<br>
+			    2.1.4  定义不同类型的变量（var）	<br>
+			    2.1.5  数据类型与运算符	<br>
+			    2.1.6  Flash中的条件语句	<br>
+			    2.1.7  Flash中的循环语句	<br>
+			    2.1.8  数组及其操作（Array）	<br>
+			    2.1.9  日期和时间（Date）	<br>
+			    2.2  ActionScript 3.0编程进阶	<br>
+			    2.2.1  MovieClip的属性控制	<br>
+			    2.2.2  ActionScript 3.0的新生事物：Sprite	<br>
+			    2.2.3  动态添加对象（addChild()）	<br>
+			    2.2.4  元件的深度控制（addChildAt()）	<br>
+			    2.2.5  动态删除对象（removeChild()和removeChildAt()）	<br>
+			    2.2.6  获取对象（getChildAt()和getChildByName()）	<br>
+			    2.2.7  改变对象的显示容器	<br>
+			    2.2.8  定义与调用函数（function）	<br>
+			    2.2.9  设置函数的参数及返回值	<br>
+			    2.2.10  搞懂函数的变量作用域	<br>
+			    2.2.11  添加和移除对象的响应事件（addEventListener()和removeEventListener()）	<br>
+			    2.2.12  使用事件侦听器响应键盘事件	<br>
+			    2.3  ActionScript 3.0面向对象编程	<br>
+			    2.3.1  什么是面向对象编程	<br>
+			    2.3.2  创建对象（class）	<br>
+			    2.3.3  添加对象的属性和方法	<br>
+			    2.3.4  访问和控制类中的属性和方法（Static）	<br>
+			    2.3.5  理解继承与导入	<br>
+			    2.3.6  添加事件侦听	<br>
+			    2.3.7  创建接口（interface）	<br>
+			    2.4  使用ActionScript 3.0 组件	<br>
+			    2.4.1  ActionScript 3.0组件简介	<br>
+			    2.4.2  使用UI组件	<br>
+			    2.4.3  自定义UI组件外观	<br>
+			    2.5  经验谈	<br>
+			    2.5.1  不要惧怕代码	<br>
+		      2.5.2  养成良好的代码书写习惯	</li>
+			  <li>第3章  ActionScript 3.0动画	<br>
+			    3.1  创建ActionScript 3.0动画	<br>
+			    3.1.1  使用帧循环创建动画	<br>
+			    3.1.2  使用EnterFrame事件创建动画	<br>
+			    3.1.3  使用Timer类创建动画	<br>
+			    3.1.4  设置动画的加速、减速、缓动和弹性	<br>
+			    3.1.5  设置动画的曲线运动	<br>
+			    3.2  ActionScript 3.0 Tween类动画	<br>
+			    3.2.1  创建简单的Tween类动画	<br>
+			    3.2.2  设置Tween类动画的缓动效果	<br>
+			    3.2.3  控制Tween类动画的播放	<br>
+			    3.2.4  ActionScript 3.0特殊动画效果	<br>
+			    3.3  ActionScript 3.0 XML动画	<br>
+			    3.3.1  使用ActionScript 3.0 XML动画	<br>
+			    3.3.2  创建自定义动画类	<br>
+			    3.4  优秀的第三方动画类	<br>
+			    3.4.1  TweenLite：轻量级的动画引擎	<br>
+		      3.4.1  GoASAP：经典的第三方动画插件	</li>
+			  <li>第4章  ActionScript 3.0与XML的结合应用	<br>
+			    4.1  理解XML	<br>
+			    4.1.1  为什么要使用XML	<br>
+			    4.1.2  理解XML结构	<br>
+			    4.2  在Flash中创建XML	<br>
+			    4.2.1  E4X：新的XML处理方法	<br>
+			    4.2.2  动态添加XML元素与属性	<br>
+			    4.2.3  修改和删除XML中的元素	<br>
+			    4.2.4  读取XML中的元素内容	<br>
+			    4.3  加载外部XML数据	<br>
+			    4.3.1  加载外部XML文件	<br>
+			    4.3.2  使用XMLList类解析XML对象的内容	<br>
+			    4.3.3  查询和匹配XML中的元素	<br>
+			    4.3.4  遍历XML结构	<br>
+		      4.3.5  使用命名空间避免冲突	</li>
+			  <li>第5章  Flash文件加载与数据交互	<br>
+			    5.1  Flash加载外部文件	<br>
+			    5.1.1  加载外部图片	<br>
+			    5.1.2  在加载过程中添加事件侦听	<br>
+			    5.1.3  跨域加载文件	<br>
+			    5.2  ActionScript 3.0数据交互	<br>
+			    5.2.1  加载文本文件	<br>
+			    5.2.2  加载服务器端脚本	<br>
+			    5.2.3  向服务器端脚本发送数据	<br>
+			    5.2.4  应用Web Service	<br>
+		      5.2.5  上传文件	</li>
+			  <li>第6章  Flash与其他软件的结合	<br>
+			    6.1  Flash与Photoshop的结合应用	<br>
+			    6.1.1  在Photoshop中为兼容性而考虑的设计细节	<br>
+			    6.1.2  在Flash中导入PSD文件	<br>
+			    6.1.3  PSD文件中特殊元素的导入	<br>
+			    6.2  Flash与AfterEffects的结合应用	<br>
+			    6.2.1  AfterEffects介绍	<br>
+			    6.2.2  制作Flash中常见的AfterEffects光芒效果	<br>
+			    6.2.3  在Flash中导入AfterEffects动画	<br>
+			    6.2.4  SWF文件的优化	<br>
+			    6.3  Flash与Maya的结合应用	<br>
+			    6.3.1  Maya介绍	<br>
+			    6.3.2  制作Flash中常见的Maya动态火焰效果	<br>
+			    6.3.3  在Flash中导入Maya动画	<br>
+			    6.4  其他相关软件	<br>
+			    6.4.1  文字特效软件SwishMax	<br>
+			    6.4.2  媒体格式转换软件Total Video Converter	<br>
+			    6.4.3  Flash加密工具SWF Encrypt	<br>
+		      6.4.4  Flash破解工具ActionScript Viewer	</li>
+			  <li><strong>第二部分  互动元素设计篇</strong></li>
+			  <li>第7章  Flash音乐播放器制作	<br>
+			    7.1  制作思路	<br>
+			    7.1.1  ActionScript 3.0 音乐播放	<br>
+			    7.1.2  素材准备	<br>
+			    7.2  制作过程	<br>
+			    7.2.1  音乐的加载	<br>
+			    7.2.2  音乐下载进度控制	<br>
+			    7.2.3  MP3文件的ID3属性的设置	<br>
+			    7.2.4  音乐的播放和停止	<br>
+			    7.2.5  音乐的播放进度	<br>
+			    7.2.6  音乐播放结束事件	<br>
+			    7.2.7  音乐进度跳转	<br>
+			    7.2.8  音乐的上一首和下一首播放	<br>
+			    7.2.9  音乐的音量控制	<br>
+			    7.2.10  音乐的左右声道控制	<br>
+		      7.2.11  音乐波形图的绘制	</li>
+			  <li>第8章  Flash视频播放器制作	<br>
+			    8.1  制作思路	<br>
+			    8.1.1  FLV视频简介	<br>
+			    8.1.2  ActionScript 3.0视频播放	<br>
+			    8.1.3  FLV服务器配置	<br>
+			    8.2  使用FLVPlayback组件制作视频播放器	<br>
+			    8.2.1  FLVPlayback组件介绍	<br>
+			    8.2.2  FLVPlayback组件代码控制	<br>
+			    8.2.3  FLVPlayback组件自定义皮肤	<br>
+			    8.2.4  FLVPlaybackCaptionin组件设置字幕	<br>
+			    8.3  自制FLV视频播放器	<br>
+			    8.3.1  视频的播放	<br>
+			    8.3.2  为视频添加控制按钮	<br>
+		      8.3.3  显示视频下载和播放进度	</li>
+			  <li>第9章  Flash下拉菜单制作	<br>
+			    9.1  制作思路	<br>
+			    9.1.1  下拉菜单基本原理	<br>
+			    9.1.2  素材准备	<br>
+			    9.2  制作Flash下拉菜单	<br>
+			    9.2.1  XML数据的载入	<br>
+			    9.2.2  下拉菜单选择框的制作	<br>
+			    9.2.3  下拉菜单列表元件的制作	<br>
+			    9.2.4  下拉菜单列表的生成	<br>
+			    9.2.5  下拉菜单的鼠标事件响应	<br>
+			    9.3  举一反三	<br>
+			    9.3.1  使用Flash UI组件制作下拉菜单	<br>
+			    9.3.2  经典效果1：悬浮菜单	<br>
+		      9.3.3  经典效果2：旋转下拉菜单	</li>
+			  <li>第10章  Flash滚动条制作	<br>
+			    10.1  制作思路	<br>
+			    10.1.1  Flash滚动条基本原理	<br>
+			    10.1.2  素材准备	<br>
+			    10.2  制作Flash滚动条	<br>
+			    10.2.1  滚动条元件的制作	<br>
+			    10.2.2  滚动条的XML数据载入	<br>
+			    10.2.3  滚动条的显示内容初始化	<br>
+			    10.2.4  滚动条的鼠标事件响应	<br>
+			    10.2.5  鼠标滚轮的鼠标事件响应	<br>
+			    10.3  举一反三	<br>
+			    10.3.1  经典效果1：横向滚动条	<br>
+		      10.3.2  经典效果2：模糊缓动效果滚动条	</li>
+			  <li>第11章  Flash图片轮动	<br>
+			    11.1  制作思路	<br>
+			    11.1.1  Flash图片轮动基本原理	<br>
+			    11.1.2  素材准备	<br>
+			    11.2  制作Flash图片轮动	<br>
+			    11.2.1  元件的制作	<br>
+			    11.2.2  XML数据载入	<br>
+			    11.2.3  图片序列的生成	<br>
+			    11.2.4  图片轮动的制作	<br>
+			    11.3  举一反三	<br>
+			    11.3.1  经典效果1：立体空间图片轮动	<br>
+		      11.3.2  经典效果2：特殊切换效果图片轮动	</li>
+			  <li>第12章  Flash网页相册	<br>
+			    12.1  制作思路	<br>
+			    12.1.1  Flash网页相册基本原理	<br>
+			    12.1.2  素材准备	<br>
+			    12.2  制作Flash网页相册	<br>
+			    12.2.1  元件的制作	<br>
+			    12.2.2  XML数据载入及缩略图列表的生成	<br>
+			    12.2.3  原图的显示	<br>
+			    12.2.4  缩略图的浏览与图片的切换	<br>
+			    12.3  举一反三	<br>
+			    12.3.1  经典效果1：平铺式相册	<br>
+			    12.3.2  经典效果2：背景缩放相册	<br>
+			    第13章  Flash浮动导航	<br>
+			    13.1  制作思路	<br>
+			    13.1.1  Flash浮动导航基本原理	<br>
+			    13.1.2  素材准备	<br>
+			    13.2  制作Flash浮动导航	<br>
+			    13.2.1  元件的制作	<br>
+			    13.2.2  缩略图列表的鼠标事件响应	<br>
+			    13.2.3  浮动效果制作	<br>
+			    13.3  举一反三	<br>
+			    13.3.1  经典效果1：图片纵向浮动浏览	<br>
+		      13.3.2  经典效果2：鼠标跟随标签	</li>
+			  <li>第14章  Flash XML折叠菜单	<br>
+			    14.1  制作思路	<br>
+			    14.1.1  Flash XML折叠菜单基本原理	<br>
+			    14.1.2  素材准备	<br>
+			    14.2  制作Flash XML折叠菜单	<br>
+			    14.2.1  元件的制作	<br>
+			    14.2.2  XML数据载入	<br>
+			    14.2.3  折叠菜单的生成	<br>
+			    14.2.4  折叠效果的制作	<br>
+			    14.3  举一反三	<br>
+			    14.3.1  经典效果1：动态折叠菜单	<br>
+		      14.3.2  经典效果2：三级折叠菜单	</li>
+			  <li>第15章  Flash数据筛选器	<br>
+			    15.1  制作思路	<br>
+			    15.1.1  Flash数据筛选器基本原理	<br>
+			    15.1.2  素材准备	<br>
+			    15.2  制作Flash数据筛选器	<br>
+			    15.2.1  元件的制作	<br>
+			    15.2.2  XML数据载入	<br>
+			    15.2.3  数据筛选器菜单的生成	<br>
+			    15.2.4  用数组显示对应产品	<br>
+			    15.2.5  筛选产品的显示	<br>
+			    15.3  举一反三	<br>
+			    15.3.1  从数组中删除重复的数据项	<br>
+		      15.3.2  随机数组	</li>
+			  <li>第16章  Flash新闻显示器	<br>
+			    16.1  制作思路	<br>
+			    16.1.1  Flash新闻显示器基本原理	<br>
+			    16.1.2  素材准备	<br>
+			    16.2  制作Flash新闻显示器	<br>
+			    16.2.1  元件的制作	<br>
+			    16.2.2  XML数据载入	<br>
+			    16.2.3  数字菜单导航的生成	<br>
+			    16.2.4  新闻的显示	<br>
+			    16.3  举一反三	<br>
+			    16.3.1  经典效果1：新闻显示的打字效果	<br>
+		      16.3.2  经典效果2：文字爬行效果	</li>
+			  <li>第17章  Flash RSS阅读器	<br>
+			    17.1  制作思路	<br>
+			    17.1.1  了解RSS	<br>
+			    17.1.2  RSS阅读器制作思路与素材准备	<br>
+			    17.2  制作Flash RSS阅读器	<br>
+			    17.2.1  元件的制作	<br>
+			    17.2.2  RSS数据的载入和显示	<br>
+			    17.3  举一反三	<br>
+			    17.3.1  RSS阅读选择器	<br>
+		      17.2.3  Flickr RSS照片展示	</li>
+			  <li>第18章  3D旋转Logo制作	<br>
+			    18.1  制作思路	<br>
+			    18.1.1  Flash与三维	<br>
+			    18.1.2  PV3D	<br>
+			    18.2  制作3D旋转Logo	<br>
+			    18.2.1  PV3D的下载	<br>
+			    18.2.2  PV3D文件的使用	<br>
+			    18.2.3  元件的制作	<br>
+			    18.2.4  PV3D的使用	<br>
+			    18.3  其他经典3D引擎	<br>
+			    18.3.1  Flare3D	<br>
+				18.3.2  Alternativa3D	<br>
+				18.3.3  Away 3D	<br>
+		      18.3.4  Sandy	</li>
+			  <li><strong>第三部分  Flash全站设计篇</strong></li>
+			  <li>第19章  Flash时尚网站设计	<br>
+			    19.1  制作思路	<br>
+			    19.1.1  Flash时尚网站展示	<br>
+			    19.1.2  网站设计基本原理	<br>
+			    19.1.3  素材准备	<br>
+			    19.2  制作Flash时尚网站的Loading	<br>
+			    19.2.1  Shell文件的制作	<br>
+			    19.2.2  网站包路径的规划	<br>
+			    19.2.3  Loading的制作	<br>
+			    19.3  网页元素的预排布	<br>
+			    19.3.1  背景的制作	<br>
+			    19.3.2  网站内容的排布	<br>
+			    19.3.3  网站菜单的制作	<br>
+			    19.3.4  网站内容的位置点的制作	<br>
+			    19.3.5  网站菜单的位置点的制作	<br>
+			    19.4  网站代码开发	<br>
+			    19.4.1  Main类的创建	<br>
+			    19.4.2  背景颜色的切换	<br>
+			    19.4.3  Slider类的制作	<br>
+		      19.4.4  网站的发布	</li>
+			  <li>第20章  Flash产品网站设计	<br>
+			    20.1  制作思路	<br>
+			    20.1.1  Flash产品网站展示	<br>
+			    20.1.2  网站制作规划	<br>
+			    20.2  网站的Loading制作	<br>
+			    20.2.1  Shell文件的制作	<br>
+			    20.2.2  Loading代码的制作	<br>
+			    20.3  网站主体框架的制作	<br>
+			    20.3.1  主文件的开场制作	<br>
+			    20.3.2  菜单的制作	<br>
+			    20.3.3  栏目内容的加载	<br>
+			    20.4  网站新闻栏目的制作	<br>
+			    20.4.1  网站新闻栏目文件创建	<br>
+			    20.4.2  制作滚动条	<br>
+			    20.4.3  制作XML读取	<br>
+			    20.5  网站产品栏目的制作	<br>
+			    20.5.1  产品栏目展示	<br>
+			    20.5.2  产品栏目元件制作	<br>
+		      20.5.3  产品栏目代码创建	</li>
+			  <li>附录  Flash网站制作小结	<br>
+			    一、网站的优化和测试	<br>
+			    （一）网站优化	<br>
+			    （二）网站测试	<br>
+			    二、网站建设实战经验总结	<br>
+			    （一）有用的资源	<br>
+			    （二）经验总结	<br>
+	          </li>
+		  </ul>
+		  <p class="gotop"><a href="#">[TOP]</a></p>
+	  </article>
+  </div>
+	<aside id="aside">
+		<div id="bookCover"><img src="book2012/book2.png" title="封面"></div>
+		<div id="sideNav">
+			<div id="sidedescription">
+			<p><strong>《Flash ActionScript 3.0 全站互动设计 》</strong>(附光盘)</p>
+			<p>作者：刘欢</p>
+			<p>责任编辑：杨璐</p>
+			<p>出版社：人民邮电出版社</p>
+			<p>ISBN: 9787115287953 </p>
+			<p>出版时间：2012-10-1 </p>
+			<p>页数：488 </p>
+			<p>价格:	￥ 69.80</p>
+			</div>
+		  <ul>
+			<li><a href="http://www.amazon.cn/Flash-ActionScript3-0%E5%85%A8%E7%AB%99%E4%BA%92%E5%8A%A8%E8%AE%BE%E8%AE%A1-%E5%88%98%E6%AC%A2/dp/B009O65XM6/ref=sr_1_5?s=books&ie=UTF8&qid=1350174928&sr=1-5" target="_blank">&raquo; 从Amazon购买</a></li>
+			<li><a href="http://product.dangdang.com/product.aspx?product_id=22886581" target="_blank">&raquo; 从当当购买</a></li>
+			<li><a href="http://book.360buy.com/11103431.html" target="_blank">&raquo; 从京东购买</a></li>
+			<li><a href="http://product.china-pub.com/3664026" target="_blank">&raquo; 从China-pub购买</a></li>
+			<li><a href="http://www.suning.com/emall/prd_10052_22001_-7_3436636_.html" target="_blank">&raquo; 从苏宁易购购买</a></li>
+		  </ul>
+		  <ul>
+		  	<li><a href="http://book.douban.com/subject/19985908/" target="_blank">&raquo; 豆瓣</a></li>
+			<li><a href="book2012/28795-A20121791.jpg" target="_blank">&raquo; 封面&amp;封底</a></li>
+			<li><a href="http://chinaservant.web13.kingstor.net/blog/article.asp?id=815" target="_blank">&raquo; 上一本书</a></li>
+		  </ul>
+		</div>
+	</aside>
+</section>
+<footer id="footer">
+Copyright 2012. All Rights Reserved. <a href="http://www.liuhuan.com/flashindex1.htm">www.liuhuan.com</a></footer>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-222333-1";
+urchinTracker();
+</script>
+<script src="counter/mystat.asp?style=no"></script>
+</body>
+</html>
