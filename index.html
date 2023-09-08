@@ -83,7 +83,7 @@
         
         li,
         ul {
-            margin: 0;
+            margin: 0 2em;
             padding: 0;
             list-style: none;
         }
@@ -91,6 +91,36 @@
         li {
             font-size: 12px;
             margin-bottom: 1em;
+        }
+        
+        li {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            margin-bottom: 3em;
+            flex-direction: column;
+            color: #333;
+        }
+        
+        li .upper {
+            text-transform: uppercase;
+            color: #555;
+        }
+        
+        li::before {
+            content: "";
+            background-size: cover;
+            width: 50px;
+            height: 50px;
+            display: block;
+        }
+        
+        #experience li::before {
+            background-image: url('img/ticket.jpg');
+        }
+        
+        #awards li::before {
+            background-image: url('img/medal.jpg');
         }
         
         #cv {
@@ -102,7 +132,7 @@
             width: 100%;
             max-width: 380px;
         }
-
+        
         #bottompic img {
             width: 100%;
             max-width: 350px;
@@ -149,17 +179,47 @@
         <h4>《网页设计师必读——网页动画Flash CS3》(2007)</h4>
         <a href="http://item.jd.com/10461335.html" class="sl" target="_blank">learn more</a>
     </div>
+
+    <div class="divide"></div>
+    <h3>Life Events</h3>
+    <ul id="experience">
+        <li><span class="upper">
+Engineer</span> East China Normal University, Shanghai (now)
+        </li>
+        <li><span class="upper">
+doctor's degree (educational technology)</span> East China Normal University, Shanghai (2014-2022)
+        </li>
+        <li><span class="upper">
+Creative Director</span> Z+G (2007-2012)
+        </li>
+        <li><span class="upper">
+Senior developer</span>YDWM, Spain (2006-2008)</li>
+        <li><span class="upper">master's degree (Biochemistry & Molecular Biology)</span>School of life science, East China Normal University, Shanghai (2004.9-2007.6)</li>
+        <li><span class="upper">Volunteer</span>Xiangshui Middle School, Wuding,Yunnan (2003.9-2004.6)</li>
+        <li><span class="upper">Designer</span>ShangzhouDesign (2003-2012)</li>
+        <li><span class="upper">bachelor's degree (biotechnology)</span>School of life science, East China Normal University, Shanghai (1999.9-2003.6)</li>
+        <li><span class="upper">high school student (Grades 1-3)</span>Lutianhua Middle School, Luzhou, Sichuan (1996.9-1999.6)</li>
+        <li><span class="upper">middle school student (Grades 2-3)</span>Lutianhua Middle School, Luzhou, Sichuan (1995.2-1996.6)</li>
+        <li><span class="upper">middle school student (Grades 2)</span>Jinchuan Middle School, Dechang, Sichuan (1994.9-1995.1)</li>
+        <li><span class="upper">middle school student (Grades 1)</span>301 Middle School, Huidong, Sichuan (1993.9-1994.6)</li>
+        <li><span class="upper">elementary school student (Grades 6)</span>301 Elementary School, Huidong, Sichuan (1993.4-1993.6) </li>
+        <li><span class="upper">elementary school student (Grades 4~6)</span>Luangshan Central Primary School, Jiangjin, Sichuan (1991.9-1993.4)</li>
+        <li><span class="upper">elementary school student (Grades 1~4)</span>Liulin Elementary School, Jiangjin, Sichuan (1987.9-1991.6)</li>
+        <li><span class="upper">Born</span>Jiangjin, Chongqing, Sichuan Province, China (1982.4)</li>
+    </ul>
     <div class="divide"></div>
     <h3>Awards</h3>
-    <ul style="margin:0 2em;">
-        <li>2008 work, “Dtclove website” has been awarded Bronze medal of New York Festivals
+    <ul id="awards">
+        <li><span class="upper">“Dtclove website”</span> Bronze medal of New York Festivals (2008)
         </li>
-        <li>2008 work, “Ford Excitechina website” awarded Gold Medal of 4th China Automobile Advertisement Festival (Best Creative Work and Best Production Work also). </li>
-        <li>2007 work, “Ford Excitechina website” has been awarded Silver Seal of GoldenSeal 2007 </li>
-        <li>2007 work, “Dtclove website” awarded as silver place of Fifth Online Advertisement of China. </li>
-        <li>2006 First prize of the second China ITAT College Student Flash Contest </li>
-        <li>2004 First prize of the first ECNU Student Web-page Design Contest </li>
-        <li>2004 First prize of the first Shanghai College Student Web-page Design Contest </li>
+        <li><span class="upper">“Ford Excitechina website”</span>Gold Medal of 4th China Automobile Advertisement Festival (2008)</li>
+        <li><span class="upper">“Ford Excitechina website”</span>Best Creative Work of 4th China Automobile Advertisement Festival (2008)</li>
+        <li><span class="upper">“Ford Excitechina website”</span>Best Production Work of 4th China Automobile Advertisement Festival (2008)</li>
+        <li><span class="upper">“Ford Excitechina website”</span>Silver Seal of GoldenSeal (2007)</li>
+        <li><span class="upper">“Dtclove website”</span>Silver place of Fifth Online Advertisement of China (2007) </li>
+        <li><span class="upper">First prize</span>China ITAT College Student Flash Contest (2006)</li>
+        <li><span class="upper">First prize</span>ECNU Student Web-page Design Contest (2004)</li>
+        <li><span class="upper">First prize</span>Shanghai College Student Web-page Design Contest (2004)</li>
     </ul>
     <div class="divide"></div>
     <h3>Contact</h3>
