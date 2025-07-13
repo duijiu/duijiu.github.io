@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <title>Excel 插入空白行工具</title>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+    }
+    input[type="file"] {
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h2>上传 Excel 文件并自动插入空白行</h2>
+  <input type="file" id="upload" accept=".xlsx,.xls" />
+  <br />
+  <button onclick="processFile()">处理并下载新文件</button>
+
+  <script>
+    // 插入行位置数组（基于前面计算结果）
+    const insertPositions = [4,13,16,16,20,30,55,56,56,56,56,59,60,62,62,62,62,62,65,65,73,73,75,76,80,82,86,86,91,97,99,99,100,100,104,108,112,114,118,118,118,119,122,124,124,128,135,135,141,141,151,157,166,166,172,177,201,202,204,204,207,207];
+
+    function processFile() {
+      const fileInput = document.getElementById('upload');
+      if (!fileInput.files.length) {
+        alert('请先选择一个 Excel 文件');
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const data = new Uint8Array(e.target.result);
+        const workbook = XLSX.read(data, { type: 'array' });
+        const sheetName = workbook.SheetNames[0];
+        const sheet = workbook.Sheets[sheetName];
+
+        // 转为二维数组
+        let rows = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+
+        // 按照 insertPositions 插入空行
+        let offset = 0;
+        for (let i = 0; i < insertPositions.length; i++) {
+          const pos = insertPositions[i] + offset - 1; // 数组下标从0开始
+          rows.splice(pos, 0, []);
+          offset++;
+        }
+
+        // 重新生成 sheet 和工作簿
+        const newSheet = XLSX.utils.aoa_to_sheet(rows);
+        const newWorkbook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(newWorkbook, newSheet, 'Sheet1');
+
+        // 下载新文件
+        XLSX.writeFile(newWorkbook, '插入空白行后.xlsx');
+      };
+      reader.readAsArrayBuffer(fileInput.files[0]);
+    }
+  </script>
+</body>
+</html>
