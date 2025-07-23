@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>港股报表合并处理</title>
+    <!-- SheetJS CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #333;
+        }
+        .file-input-container {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+        .file-input-container label {
+            width: 120px;
+            font-weight: bold;
+        }
+        .file-input-container input {
+            margin-right: 10px;
+        }
+        #merge-button {
+            padding: 10px 20px;
+            background: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 20px 0;
+        }
+        #merge-button:hover {
+            background: #0056b3;
+        }
+        #log {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            height: 300px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            font-family: monospace;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1>港股报表合并处理</h1>
+    <p>请分别上传利润表、资产负债表和现金流量表的 Excel 文件，然后点击“合并”生成新文件。</p>
+    
+    <div class="file-input-container">
+        <label for="profit-file">利润表:</label>
+        <input type="file" id="profit-file" accept=".xlsx,.xls" />
+        <span id="profit-file-name"></span>
+    </div>
+    <div class="file-input-container">
+        <label for="balance-file">资产负债表:</label>
+        <input type="file" id="balance-file" accept=".xlsx,.xls" />
+        <span id="balance-file-name"></span>
+    </div>
+    <div class="file-input-container">
+        <label for="cashflow-file">现金流量表:</label>
+        <input type="file" id="cashflow-file" accept=".xlsx,.xls" />
+        <span id="cashflow-file-name"></span>
+    </div>
+    <button id="merge-button" onclick="mergeExcels()">合并</button>
+    
+    <h2>日志输出</h2>
+    <div id="log"></div>
+
+    <script>
+        // 嵌入 config 数据
+        const config = {
+            "output_file": "合并报表结果.xlsx",
+            "sheets": [
+            {
+      "name": "利润表",
+      "row_map": {
+        "1": 1,
+        "5": 2,
+        "6": 3,
+        "7": 4,
+        "8": 5,
+        "9": 6,
+        "10": 7,
+        "11": 8,
+        "12": 9,
+        "13": 10,
+        "14": 12,
+        "15": 13,
+        "16": 14,
+        "17": 15,
+        "18": 16,
+        "19": 17,
+        "20": 18,
+        "21": 21,
+        "22": 23,
+        "23": 24
+      }
+    },
+    {
+      "name": "资产负债表",
+      "row_map": {
+        "4": 26,
+        "5": 27,
+        "6": 28,
+        "7": 30,
+        "8": 31,
+        "9": 32,
+        "10": 33,
+        "11": 35,
+        "12": 36,
+        "13": 37,
+        "14": 41,
+        "15": 42,
+        "16": 44,
+        "17": 45,
+        "18": 46,
+        "19": 47,
+        "20": 48,
+        "21": 49,
+        "22": 50,
+        "23": 51,
+        "24": 52,
+        "25": 53,
+        "26": 54,
+        "27": 55,
+        "28": 56,
+        "29": 57,
+        "30": 58,
+        "31": 59,
+        "32": 61,
+        "33": 62,
+        "34": 64,
+        "35": 65,
+        "36": 66,
+        "37": 67,
+        "38": 68,
+        "39": 69
+      }
+    },
+    {
+      "name": "现金流量表",
+      "row_map": {
+        "6": 72,
+        "7": 73,
+        "8": 74,
+        "9": 75,
+        "10": 76,
+        "11": 77,
+        "12": 78,
+        "13": 79,
+        "14": 82,
+        "15": 83,
+        "16": 84,
+        "17": 85,
+        "18": 86,
+        "19": 87,
+        "20": 90,
+        "21": 91,
+        "22": 92,
+        "23": 95,
+        "24": 96,
+        "25": 97
+      }
+    }
+            ]
+        };
+
+        // 显示选择的文件名
+        function updateFileName(inputId, displayId) {
+            const input = document.getElementById(inputId);
+            const display = document.getElementById(displayId);
+            input.addEventListener('change', () => {
+                display.textContent = input.files[0] ? input.files[0].name : '未选择文件';
+            });
+        }
+        updateFileName('profit-file', 'profit-file-name');
+        updateFileName('balance-file', 'balance-file-name');
+        updateFileName('cashflow-file', 'cashflow-file-name');
+
+        // 日志输出函数
+        function log(message) {
+            const logDiv = document.getElementById('log');
+            logDiv.innerText += message + '\n';
+            logDiv.scrollTop = logDiv.scrollHeight;
+        }
+
+        // 检查目标行重复
+        function checkDuplicateTargets(config) {
+            const duplicateInfo = [];
+            config.sheets.forEach(sheet => {
+                const targetCount = {};
+                for (const [sourceRow, targetRow] of Object.entries(sheet.row_map)) {
+                    if (!targetCount[targetRow]) targetCount[targetRow] = [];
+                    targetCount[targetRow].push(sourceRow);
+                }
+                for (const [target, sources] of Object.entries(targetCount)) {
+                    if (sources.length > 1) {
+                        duplicateInfo.push(`⚠️【${sheet.name}】中目标行号 ${target} 被多个源行映射：${sources}`);
+                    }
+                }
+            });
+            return duplicateInfo;
+        }
+
+        // 清理第一列文本
+        function cleanCellValue(value) {
+            if (typeof value === 'string') {
+                const originalValue = value;
+                // 移除全角空格 (U+3000) 和半角空格 (U+0020)
+                value = value.replace(/\u3000/g, '').replace(/ /g, '');
+                // 移除不可见控制字符
+                value = value.replace(/[\x00-\x1F\x7F]/g, '');
+                if (value !== originalValue) {
+                    log(`🔍 清理第一列文本：原始='${originalValue}'，清理后='${value}'，Unicode=${JSON.stringify([...value].map(c => c.charCodeAt(0)))}`);
+                }
+                return value || ''; // 空字符串转为 ''
+            }
+            return value == null ? '' : value; // null 或 undefined 转为 ''
+        }
+
+        // 获取合并单元格值
+        function getMergedCellValue(ws, row, col, merges) {
+            const cellAddress = XLSX.utils.encode_cell({ r: row - 1, c: col - 1 });
+            for (const merge of merges || []) {
+                if (cellAddress >= merge.s && cellAddress <= merge.e) {
+                    const startCell = XLSX.utils.encode_cell({ r: merge.s.r, c: merge.s.c });
+                    log(`🔍 检测到合并单元格：${merge.s.r + 1}:${merge.s.c + 1} 到 ${merge.e.r + 1}:${merge.e.c + 1}，使用首单元格值`);
+                    return ws[startCell] ? cleanCellValue(ws[startCell].v) : '';
+                }
+            }
+            return ws[cellAddress] ? cleanCellValue(ws[cellAddress].v) : '';
+        }
+
+        // 提取行数据
+        function extractRowsByMap(file, rowMap, sheetName) {
+            return new Promise((resolve) => {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    const data = new Uint8Array(e.target.result);
+                    const workbook = XLSX.read(data, { type: 'array' });
+                    const ws = workbook.Sheets[workbook.SheetNames[0]];
+                    const range = XLSX.utils.decode_range(ws['!ref'] || 'A1:A1');
+                    const maxRow = range.e.r + 1;
+                    const maxCol = range.e.c + 1;
+                    const merges = ws['!merges'] || [];
+                    const extracted = {};
+
+
+
+                    const seenTargets = new Set();
+                    for (const [sourceRowStr, targetRow] of Object.entries(rowMap)) {
+                        log(`🔍 处理源行号：${sourceRowStr}，目标行号：${targetRow}`);
+                        try {
+                            const sourceRow = parseInt(sourceRowStr);
+                            if (sourceRow > maxRow) {
+                                log(`❌ 错误：源行号 ${sourceRow} 超出 Excel 文件最大行数 ${maxRow}`);
+                                continue;
+                            }
+                            if (seenTargets.has(targetRow)) {
+                                log(`⚠️ 警告：目标行号 ${targetRow} 已重复，忽略源行 ${sourceRow}`);
+                                continue;
+                            }
+                            const values = [];
+                            for (let col = 1; col <= maxCol; col++) {
+                                values.push(getMergedCellValue(ws, sourceRow, col, merges));
+                            }
+                            log(`🔍 第${sourceRow}行原始数据：${JSON.stringify(values)}`);
+                            if (!values.some(v => typeof v === 'string' && v.trim())) {
+                                log(`⚠️ 警告：第${sourceRow}行内容为空，跳过`);
+                                continue;
+                            }
+                            extracted[targetRow] = values;
+                            seenTargets.add(targetRow);
+                            log(`✅ 第${sourceRow}行 → 合并第${targetRow}行：${JSON.stringify(values)}`);
+                        } catch (e) {
+                            log(`❌ 提取错误：${sheetName} 第${sourceRow}行 → 第${targetRow}行，错误信息：${e.message}`);
+                        }
+                    }
+                    resolve(extracted);
+                };
+                reader.readAsArrayBuffer(file);
+            });
+        }
+
+        // 合并 Excel 文件
+        async function mergeExcels() {
+            const files = [
+                document.getElementById('profit-file').files[0],
+                document.getElementById('balance-file').files[0],
+                document.getElementById('cashflow-file').files[0]
+            ];
+            if (files.some(f => !f)) {
+                log(`❌ 错误：请上传所有三个 Excel 文件（利润表、资产负债表、现金流量表）`);
+                return;
+            }
+            if (files.length !== config.sheets.length) {
+                log(`❌ 错误：应上传 ${config.sheets.length} 个 Excel 文件，当前上传了 ${files.length} 个`);
+                return;
+            }
+
+            log(`📋 config 内容：${JSON.stringify(config, null, 2)}`);
+            const duplicateInfo = checkDuplicateTargets(config);
+            if (duplicateInfo.length > 0) {
+                log(`\n🚫 检查到目标行号重复，以下映射存在冲突，将只保留第一个有效映射：`);
+                duplicateInfo.forEach(info => log(info));
+                log('');
+            }
+
+            const finalData = {};
+            for (let idx = 0; idx < config.sheets.length; idx++) {
+                const sheetInfo = config.sheets[idx];
+                log(`\n📋 处理工作表：${sheetInfo.name}`);
+                log(`📋 工作表配置：${JSON.stringify(sheetInfo, null, 2)}`);
+                const rowMap = sheetInfo.row_map;
+                const file = files[idx];
+                const extracted = await extractRowsByMap(file, rowMap, sheetInfo.name);
+                Object.assign(finalData, extracted);
+            }
+
+            // 创建新工作表
+            const wb = XLSX.utils.book_new();
+            const ws = XLSX.utils.json_to_sheet([]);
+            XLSX.utils.book_append_sheet(wb, ws, '合并报表');
+
+            log('\n🧩 开始写入合并报表...');
+            const sortedRows = Object.keys(finalData).map(Number).sort((a, b) => a - b);
+            for (const rowIdx of sortedRows) {
+                const values = finalData[rowIdx];
+                if (!values.some(v => typeof v === 'string' && v.trim())) {
+                    log(`⚠️ 警告：第${rowIdx}行内容为空，已跳过写入。`);
+                    continue;
+                }
+                const row = values.reduce((acc, val, colIdx) => {
+                    // 将 null 或 undefined 替换为 ''，确保空单元格
+                    acc[XLSX.utils.encode_cell({ r: rowIdx - 1, c: colIdx })] = { v: val == null ? '' : val };
+                    return acc;
+                }, {});
+                Object.assign(ws, row);
+                log(`✍️ 写入第${rowIdx}行：${JSON.stringify(values)}`);
+            }
+            ws['!ref'] = XLSX.utils.encode_range({ s: { r: 0, c: 0 }, e: { r: Math.max(...sortedRows) - 1, c: Math.max(...Object.values(finalData).map(v => v.length)) - 1 } });
+
+            // 生成并下载 Excel 文件
+            XLSX.writeFile(wb, config.output_file);
+            log(`\n✅ 合并完成，结果已保存为：${config.output_file}`);
+        }
+    </script>
+</body>
+</html>
